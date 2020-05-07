@@ -1,0 +1,94 @@
+<script>
+
+//********* FASE 1 *********
+//var[] billetes = new var[] {5, 10, 20, 50, 100, 200, 500};
+//Creamos las variables para los diferentes billetes
+var billete1 = 5;
+var billete2 = 10;
+var billete3 = 20;
+var billete4 = 50;
+var billete5 = 100;
+var billete6 = 200;
+var billete7 = 500;
+
+//Creamos la variable para el precio total de la comida
+var precioTotal = 0.00;
+
+//Creamos los arrays de los platos y sus precios del menú
+var menuPlatos = new Array(5);
+var preciosPlatos = new Array(5);
+
+
+//********* FASE 2 *********
+console.log("********* FASE 2 *********");
+
+//Bucle donde pedimos al camarero que nos varroduzca los platos y sus precios y los guardamos en un array
+for(var i = 0; i < menuPlatos.length; i++)
+{
+    menuPlatos[i] = prompt("Hola camarero, introduce el plato a continuación");
+
+    preciosPlatos[i] = prompt("introduce su precio");
+}
+
+
+console.log("Bienvenidos, los platos que disponemos y sus precios son los siguientes:");
+
+
+//Bucle donde mostramos los platos almacenados en el array junto a sus precios
+for (var i = 0; i < menuPlatos.length; i++)
+{
+    console.log(menuPlatos[i]);
+
+    console.log("su precio es: " + preciosPlatos[i]);
+}
+
+
+//Creamos el array para los platos que van a pedir
+var platosPedidos = new Array();
+
+var respuesta = prompt("Queréis comer?");
+
+while(respuesta.toLowerCase() == "sí" || respuesta.toLowerCase() == "si")
+{
+    platosPedidos.push(prompt("Qué plato queréis pedir?")); 
+
+    respuesta = prompt("Queréis pedir más cosas?");
+}
+
+
+
+//********* FASE 3 *********
+console.log("********* FASE 3 *********");
+
+console.log("Habéis pedido los siguientes platos:");
+for(var i = 0; i < platosPedidos.length; i++)
+{
+    console.log(platosPedidos[i]);
+}
+
+for(var i = 0; i < platosPedidos.length; i++) 
+{
+    var coincidencia = false;
+    for(var j = 0; j < menuPlatos.length; j++)
+    {
+        //console.log("el plato pedido es " + platosPedidos[i] + " el plato del menu es " + menuPlatos[j]);
+        //console.log("i es " + i + " j es " + j);
+        if(platosPedidos[i] == menuPlatos[j])
+        {
+            //console.log("coincide, tu plato es " + platosPedidos[i]);
+            coincidencia = true;
+
+            //console.log("el precio del plato es " +preciosPlatos[j]);
+            precioTotal += parseFloat(preciosPlatos[j]);
+        }
+    }
+    if (!coincidencia)
+    {
+        console.log("No tenemmos " + platosPedidos[i] + " en el menú");
+    }
+}
+
+console.log("El precio total son: " + precioTotal);
+
+ 
+</script>
